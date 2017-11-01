@@ -289,7 +289,7 @@ mkdir -p /root/bin || true
 if [[ `grep snapshot /var/spool/cron/root | wc -l` -eq 0 ]]
 then
 	echo -ne "[*] Adding to root crontab... "
-	echo "* * * * * /root/bin/snapshot -i > /dev/null 2>&1 &" > /etc/cron.d/snapshot
+	echo "* * * * * root /root/bin/snapshot -i > /dev/null 2>&1 &" > /etc/cron.d/snapshot
 	service cron restart
 fi
 
