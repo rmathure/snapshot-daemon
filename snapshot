@@ -11,6 +11,7 @@ then
 	arg2=summ
 fi
 
+mkdir $log_dir || true
 
 log_start () {
 
@@ -301,7 +302,7 @@ then
 	exit 0
 fi
 
-if [[ -z `ps aux | grep snapshot | grep -v grep | grep -v "/root/bin/snapshot -i"` ]]
+if [[ -z `ps aux | grep snapshot | grep -v grep | grep -v "snapshot -i"` ]]
 then
 	if [[ ! -d $log_dir/logs ]]
 	then
@@ -313,7 +314,7 @@ then
 else
 	echo
 	echo "[!] Existing process found."
-	ps aux | grep snapshot | grep -v grep | grep -v "/root/bin/snapshot -i"
+	ps aux | grep snapshot | grep -v grep | grep -v "snapshot -i"
 	echo
 	echo Use --force to install anyways.
 fi
